@@ -1,0 +1,41 @@
+/* ===== MARQUEE ===== */
+.marquee {
+  padding: 20px 0;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-dark) 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee--reverse {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark-surface) 50%, var(--dark) 100%);
+}
+
+.marquee--reverse .marquee__text {
+  color: var(--secondary);
+  opacity: 0.7;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee--reverse .marquee__track {
+  animation: marqueeReverse 30s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0 40px;
+}

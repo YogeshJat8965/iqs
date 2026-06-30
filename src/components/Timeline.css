@@ -1,0 +1,117 @@
+/* ===== TIMELINE ===== */
+.timeline {
+  padding: var(--section-padding);
+  background: var(--light);
+  position: relative;
+}
+
+.timeline__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.timeline__header .section-subtitle {
+  margin: 0 auto;
+}
+
+.timeline__steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  gap: 16px;
+}
+
+.timeline__line {
+  position: absolute;
+  top: 50px;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+  z-index: 0;
+  border-radius: 2px;
+}
+
+.timeline__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  gap: 12px;
+}
+
+.timeline__step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: var(--white);
+  font-family: var(--font-stat);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow-teal);
+}
+
+.timeline__step-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--primary);
+  box-shadow: var(--shadow-md);
+  border: 2px solid rgba(13, 124, 102, 0.1);
+  transition: all 0.3s var(--ease-spring);
+}
+
+.timeline__step:hover .timeline__step-icon {
+  transform: translateY(-4px) scale(1.08);
+  background: var(--gradient-primary);
+  color: var(--white);
+  box-shadow: var(--shadow-glow-teal);
+  border-color: transparent;
+}
+
+.timeline__step-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.timeline__step-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  max-width: 140px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline__steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .timeline__line {
+    display: none;
+  }
+  .timeline__step {
+    flex-direction: row;
+    text-align: left;
+    gap: 16px;
+    max-width: 400px;
+    width: 100%;
+  }
+  .timeline__step-desc {
+    max-width: none;
+  }
+}

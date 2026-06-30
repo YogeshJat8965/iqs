@@ -1,0 +1,97 @@
+.reviews {
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px; /* Extra padding for cards hover */
+}
+
+/* Add a subtle glow behind the slider */
+.reviews::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  height: 50vh;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(200, 169, 98, 0.05) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.reviews__slider {
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* To make swiper marquee continuous without stopping between slides */
+.reviews-swiper::part(wrapper) {
+  transition-timing-function: linear !important;
+}
+
+/* Container for swiper slides to add padding so they don't get cut off on hover */
+.reviews-swiper swiper-slide {
+  padding: 10px 0;
+  height: auto; /* Allow full height matching */
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(200, 169, 98, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.review-icon {
+  font-size: 2rem;
+  color: rgba(200, 169, 98, 0.2);
+  margin-bottom: -10px;
+}
+
+.review-rating {
+  display: flex;
+  gap: 4px;
+  color: #f59e0b;
+  font-size: 0.9rem;
+}
+
+.review-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--white);
+  flex-grow: 1;
+  font-style: italic;
+}
+
+.review-author {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 16px;
+}
+
+.review-author strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--secondary);
+}
+
+.review-author span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
