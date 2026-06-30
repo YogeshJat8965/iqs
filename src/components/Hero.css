@@ -78,6 +78,11 @@
   animation: heroFadeUp 0.8s var(--ease-out) 0.3s both;
 }
 
+.hero__title-nowrap {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .hero__typewriter {
   display: inline-block;
   color: var(--secondary);
@@ -387,12 +392,39 @@
 
   .hero__badges {
     justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
   }
 
   .hero__visual {
     order: -1;
     max-width: 400px;
     margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .hero__social {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -25px;
+    transform: translateX(-50%);
+    flex-direction: row;
+    padding: 12px 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(200, 169, 98, 0.3);
+    border-top: none;
+  }
+
+  .hero__social a {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .hero__title-nowrap {
+    white-space: normal;
+    display: inline;
   }
 
   .hero__float-card--1 {

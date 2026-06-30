@@ -105,7 +105,7 @@ export default function Hero() {
               <span className="hero__cursor">|</span>
             </span>
             <br />
-            <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>with World-Class Care</span>
+            <span className="hero__title-nowrap">with World-Class Care</span>
           </h1>
 
           {/* <p className="hero__subtitle">

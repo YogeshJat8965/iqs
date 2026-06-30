@@ -5,13 +5,12 @@ import './About.css'
 function Counter({ end, suffix = '', duration = 2000 }) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
-  const counted = useRef(false)
+  const animationFrameRef = useRef(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !counted.current) {
-          counted.current = true
+        if (entry.isIntersecting) {
           const start = 0
           const startTime = performance.now()
 
@@ -22,17 +21,25 @@ function Counter({ end, suffix = '', duration = 2000 }) {
             setCount(Math.floor(eased * (end - start) + start))
 
             if (progress < 1) {
-              requestAnimationFrame(animate)
+              animationFrameRef.current = requestAnimationFrame(animate)
             }
           }
-          requestAnimationFrame(animate)
+          animationFrameRef.current = requestAnimationFrame(animate)
+        } else {
+          if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current)
+          }
+          setCount(0)
         }
       },
       { threshold: 0.5 }
     )
 
     if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
+    }
   }, [end, duration])
 
   return (

@@ -58,9 +58,10 @@ export default function Navbar() {
         </ul>
 
         <a
-          href="#booking"
+          href="https://wa.me/905066494748"
+          target="_blank"
+          rel="noopener noreferrer"
           className="navbar__cta btn btn-primary"
-          onClick={(e) => handleClick(e, '#booking')}
         >
           Book Consultation
         </a>
@@ -86,9 +87,11 @@ export default function Navbar() {
           ))}
           <li style={{ animationDelay: `${navLinks.length * 0.08}s` }}>
             <a
-              href="#booking"
+              href="https://wa.me/905066494748"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-primary"
-              onClick={(e) => handleClick(e, '#booking')}
+              onClick={() => setMobileOpen(false)}
               style={{ marginTop: '16px' }}
             >
               Book Consultation
