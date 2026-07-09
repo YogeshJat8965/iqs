@@ -1,11 +1,11 @@
 /* ===== HERO SECTION ===== */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-top: 80px;
+  margin-top: 100px;
 }
 
 .hero__bg {
@@ -370,7 +370,8 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 80px;
+    margin-top: 100px;
+    padding-top: 20px;
     min-height: auto;
     padding-bottom: 60px;
   }

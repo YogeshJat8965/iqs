@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
+import logo from '../assets/logo.png'
 import './Navbar.css'
 
 const navLinks = [
@@ -40,11 +41,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} id="navbar">
       <div className="navbar__container container">
         <a href="#hero" className="navbar__logo" onClick={(e) => handleClick(e, '#hero')}>
-          <span className="navbar__logo-icon">✦</span>
-          <div>
-            <span className="navbar__logo-text">IQS</span>
-            <span className="navbar__logo-sub">CLINIC</span>
-          </div>
+          <img src={logo} alt="IQS Clinic" className="navbar__logo-img" />
         </a>
 
         <ul className="navbar__links">

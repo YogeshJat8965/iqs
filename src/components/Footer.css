@@ -32,29 +32,10 @@
   margin-bottom: 16px;
 }
 
-.footer__logo-icon {
-  font-size: 1.5rem;
-  color: var(--secondary);
-}
-
-.footer__logo-text {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: 2px;
-  display: block;
-  line-height: 1;
-}
-
-.footer__logo-sub {
-  font-family: var(--font-body);
-  font-size: 0.55rem;
-  font-weight: 500;
-  color: var(--secondary);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  display: block;
+.footer__logo-img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer__brand-desc {
