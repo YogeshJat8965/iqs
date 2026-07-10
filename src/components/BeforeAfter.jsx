@@ -1,15 +1,15 @@
 import { useState, useRef } from 'react'
 import './BeforeAfter.css'
 
-import img1Before from '../assets/1before.png'
-import img1After from '../assets/1after.png'
-import img2Before from '../assets/2before.png'
-import img2After from '../assets/2after.png'
-import img3Before from '../assets/3before.png'
-import img3After from '../assets/3after.png'
+import img1Before from '../assets/1before.jpg'
+import img1After from '../assets/1after.jpg'
+import img2Before from '../assets/2before.jpg'
+import img2After from '../assets/2after.jpg'
+import img3Before from '../assets/3before.jpg'
+import img3After from '../assets/3after.jpg'
 // 4after is missing from assets, skipping 4 for now to avoid build errors
-import img5Before from '../assets/5before.png'
-import img5After from '../assets/5after.png'
+import img5Before from '../assets/5before.jpg'
+import img5After from '../assets/5after.jpg'
 
 const results = [
   {
@@ -84,7 +84,7 @@ function Slider({ data }) {
       >
         {/* After Image (full width background) */}
         <div className="ba__image ba__image--after">
-          <img src={data.after} alt="After treatment" loading="lazy" style={{ objectPosition: data.positionY ? `50% ${data.positionY}` : 'center' }} />
+          <img src={data.after} alt="After treatment" style={{ objectPosition: data.positionY ? `50% ${data.positionY}` : 'center' }} />
           <span className="ba__label ba__label--after">After</span>
         </div>
 
@@ -93,7 +93,7 @@ function Slider({ data }) {
           className="ba__image ba__image--before"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
-          <img src={data.before} alt="Before treatment" loading="lazy" style={{ objectPosition: data.positionY ? `50% ${data.positionY}` : 'center' }} />
+          <img src={data.before} alt="Before treatment" style={{ objectPosition: data.positionY ? `50% ${data.positionY}` : 'center' }} />
           <span className="ba__label ba__label--before">Before</span>
         </div>
 
