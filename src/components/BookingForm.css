@@ -22,7 +22,7 @@
 .booking__bg-shape--1 {
   width: 400px;
   height: 400px;
-  background: rgba(13, 124, 102, 0.2);
+  background: rgba(42, 171, 226, 0.2);
   top: -100px;
   right: -100px;
   animation: float 10s infinite;
@@ -31,7 +31,7 @@
 .booking__bg-shape--2 {
   width: 300px;
   height: 300px;
-  background: rgba(200, 169, 98, 0.15);
+  background: rgba(14, 77, 138, 0.15);
   bottom: -80px;
   left: -80px;
   animation: float 8s infinite reverse;
@@ -71,7 +71,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: rgba(13, 124, 102, 0.2);
+  background: rgba(42, 171, 226, 0.2);
   border: 1px solid var(--primary);
   display: flex;
   align-items: center;
@@ -114,7 +114,7 @@
 .booking__field select:focus {
   border-color: var(--primary-light);
   background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 3px rgba(13, 124, 102, 0.15);
+  box-shadow: 0 0 0 3px rgba(42, 171, 226, 0.15);
 }
 
 .booking__field label {
@@ -157,7 +157,7 @@
 
 .booking__success {
   padding: 14px;
-  background: rgba(13, 124, 102, 0.2);
+  background: rgba(42, 171, 226, 0.2);
   border: 1px solid var(--primary);
   border-radius: var(--radius-sm);
   color: var(--primary-light);

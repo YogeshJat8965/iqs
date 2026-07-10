@@ -1,7 +1,7 @@
 /* ===== GALLERY ===== */
 .gallery {
   padding: var(--section-padding);
-  background: var(--dark-surface);
+  background: var(--light);
 }
 
 .gallery__header {

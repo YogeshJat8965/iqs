@@ -16,8 +16,8 @@ export default function WhyChoose() {
       <div className="why__container container">
         <div className="why__header" data-animate="fade-up">
           <span className="section-label">Why IQS Clinic</span>
-          <h2 className="section-title section-title--light">Why Choose Us</h2>
-          <p className="section-subtitle section-subtitle--light">
+          <h2 className="section-title">Why Choose Us</h2>
+          <p className="section-subtitle">
             Everything you need for a seamless medical tourism experience.
           </p>
         </div>

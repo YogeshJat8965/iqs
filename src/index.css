@@ -3,27 +3,33 @@
 /* --- CSS Custom Properties (Design Tokens) --- */
 :root {
   /* Colors */
-  --primary: #0D7C66;
-  --primary-light: #14A38B;
-  --primary-dark: #095e4d;
-  --secondary: #C8A962;
-  --secondary-light: #d4ba7a;
-  --dark: #0A0F1A;
-  --dark-surface: #111827;
-  --dark-card: #1a2332;
-  --light: #F8FAFB;
+  --primary: #2AABE2;
+  --primary-light: #5CC8F0;
+  --primary-dark: #1A8AC4;
+  --secondary: #0E4D8A;
+  --secondary-light: #3A6EA5;
+  --dark: #0F2A44;
+  --dark-surface: #132F4C;
+  --dark-card: #183A5A;
+  --light: #F0F7FB;
   --white: #FFFFFF;
-  --text-primary: #1A1A2E;
-  --text-muted: #6B7280;
-  --text-light: #9CA3AF;
+  --text-primary: #1B2E40;
+  --text-muted: #5A7A94;
+  --text-light: #8FAAB8;
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-light: rgba(0, 0, 0, 0.06);
 
+  /* Additional Medical Colors */
+  --mint-soft: #E0F5F0;
+  --ice-blue: #E8F4FA;
+  --trust-green: #28B67A;
+  --soft-coral: #EF6C6C;
+
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #0D7C66 0%, #14A38B 50%, #0D7C66 100%);
-  --gradient-gold: linear-gradient(135deg, #C8A962 0%, #d4ba7a 50%, #C8A962 100%);
-  --gradient-hero: linear-gradient(135deg, #0A0F1A 0%, #0f1a2e 40%, #0d2a3a 70%, #0A0F1A 100%);
-  --gradient-dark: linear-gradient(180deg, #0A0F1A 0%, #111827 100%);
+  --gradient-primary: linear-gradient(135deg, #2AABE2 0%, #5CC8F0 50%, #2AABE2 100%);
+  --gradient-accent: linear-gradient(135deg, #0E4D8A 0%, #3A6EA5 50%, #0E4D8A 100%);
+  --gradient-hero: linear-gradient(135deg, #0F2A44 0%, #132F4C 40%, #1A3D5C 70%, #0F2A44 100%);
+  --gradient-dark: linear-gradient(180deg, #0F2A44 0%, #132F4C 100%);
   --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%);
 
   /* Typography */
@@ -42,8 +48,8 @@
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.15);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.2);
-  --shadow-glow-teal: 0 0 30px rgba(13, 124, 102, 0.3);
-  --shadow-glow-gold: 0 0 30px rgba(200, 169, 98, 0.3);
+  --shadow-glow-blue: 0 0 30px rgba(42, 171, 226, 0.3);
+  --shadow-glow-navy: 0 0 30px rgba(14, 77, 138, 0.3);
 
   /* Borders */
   --radius-sm: 8px;
@@ -123,13 +129,13 @@ h1, h2, h3, h4, h5, h6 {
 .section-label {
   font-family: var(--font-cursive);
   font-size: 2rem;
-  color: var(--secondary);
+  color: var(--primary);
   margin-bottom: 8px;
   display: block;
 }
 
 .section-label--light {
-  color: var(--secondary-light);
+  color: var(--primary-light);
 }
 
 .section-title {
@@ -190,12 +196,12 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary {
   background: var(--gradient-primary);
   color: var(--white);
-  box-shadow: 0 4px 15px rgba(13, 124, 102, 0.4);
+  box-shadow: 0 4px 15px rgba(42, 171, 226, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(13, 124, 102, 0.5);
+  box-shadow: 0 8px 25px rgba(42, 171, 226, 0.5);
 }
 
 .btn-outline {
@@ -206,20 +212,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline:hover {
-  border-color: var(--secondary);
-  color: var(--secondary);
+  border-color: var(--primary-light);
+  color: var(--primary-light);
   transform: translateY(-2px);
 }
 
-.btn-gold {
-  background: var(--gradient-gold);
-  color: var(--dark);
-  box-shadow: 0 4px 15px rgba(200, 169, 98, 0.4);
+.btn-accent {
+  background: var(--gradient-accent);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(14, 77, 138, 0.4);
 }
 
-.btn-gold:hover {
+.btn-accent:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(200, 169, 98, 0.5);
+  box-shadow: 0 8px 25px rgba(14, 77, 138, 0.5);
 }
 
 /* --- Glassmorphism --- */
@@ -302,8 +308,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes borderGlow {
-  0%, 100% { border-color: rgba(13, 124, 102, 0.3); }
-  50% { border-color: rgba(200, 169, 98, 0.6); }
+  0%, 100% { border-color: rgba(42, 171, 226, 0.3); }
+  50% { border-color: rgba(14, 77, 138, 0.6); }
 }
 
 @keyframes typewriter {

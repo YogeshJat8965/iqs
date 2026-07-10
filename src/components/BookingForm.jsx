@@ -132,7 +132,7 @@ export default function BookingForm() {
             <label htmlFor="booking-message">Your Message</label>
           </div>
 
-          <button type="submit" className="btn btn-gold booking__submit">
+          <button type="submit" className="btn btn-accent booking__submit">
             Book Free Consultation
           </button>
         </form>

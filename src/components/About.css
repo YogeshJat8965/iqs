@@ -55,19 +55,20 @@
   align-items: center;
   gap: 10px;
   padding: 14px 22px;
-  background: rgba(10, 15, 26, 0.85) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(20px);
   z-index: 2;
   animation: floatSlow 5s infinite;
+  box-shadow: var(--shadow-md);
 }
 
 .about__image-badge svg {
-  color: var(--secondary);
+  color: var(--primary);
   font-size: 1.2rem;
 }
 
 .about__image-badge span {
-  color: var(--white);
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 0.85rem;
 }
@@ -110,7 +111,7 @@
 .about__stat:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(13, 124, 102, 0.2);
+  border-color: rgba(42, 171, 226, 0.2);
 }
 
 .about__stat-icon {

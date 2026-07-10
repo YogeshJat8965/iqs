@@ -48,14 +48,14 @@
 .contact__card:hover {
   transform: translateX(4px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(13, 124, 102, 0.15);
+  border-color: rgba(42, 171, 226, 0.15);
 }
 
 .contact__card-icon {
   width: 42px;
   height: 42px;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, rgba(13, 124, 102, 0.1), rgba(13, 124, 102, 0.05));
+  background: linear-gradient(135deg, rgba(42, 171, 226, 0.1), rgba(42, 171, 226, 0.05));
   display: flex;
   align-items: center;
   justify-content: center;
