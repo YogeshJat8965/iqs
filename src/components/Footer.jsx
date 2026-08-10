@@ -1,4 +1,5 @@
 import { FaInstagram, FaYoutube, FaFacebook, FaWhatsapp, FaEnvelope, FaPhone, FaMapMarkerAlt, FaChevronUp } from 'react-icons/fa'
+import logo from '../assets/logo.png'
 import './Footer.css'
 
 export default function Footer() {
@@ -13,11 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer__brand">
             <div className="footer__logo">
-              <span className="footer__logo-icon">✦</span>
-              <div>
-                <span className="footer__logo-text">IQS</span>
-                <span className="footer__logo-sub">CLINIC</span>
-              </div>
+              <img src={logo} alt="IQS Clinic" className="footer__logo-img" />
             </div>
             <p className="footer__brand-desc">
               Expert in Cosmetic Surgery, Dental Care, Hair Transplants & Online Consultations. 

@@ -7,7 +7,7 @@
 }
 
 .marquee--reverse {
-  background: linear-gradient(135deg, var(--dark) 0%, var(--dark-surface) 50%, var(--dark) 100%);
+  background: var(--ice-blue);
 }
 
 .marquee--reverse .marquee__text {

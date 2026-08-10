@@ -20,8 +20,8 @@ export default function Gallery() {
       <div className="gallery__container container">
         <div className="gallery__header" data-animate="fade-up">
           <span className="section-label">Visual Tour</span>
-          <h2 className="section-title section-title--light">Photo Gallery</h2>
-          <p className="section-subtitle section-subtitle--light">
+          <h2 className="section-title">Photo Gallery</h2>
+          <p className="section-subtitle">
             Explore our state-of-the-art facilities, procedures, and the beauty of Istanbul.
           </p>
         </div>

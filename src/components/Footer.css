@@ -32,29 +32,10 @@
   margin-bottom: 16px;
 }
 
-.footer__logo-icon {
-  font-size: 1.5rem;
-  color: var(--secondary);
-}
-
-.footer__logo-text {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: 2px;
-  display: block;
-  line-height: 1;
-}
-
-.footer__logo-sub {
-  font-family: var(--font-body);
-  font-size: 0.55rem;
-  font-weight: 500;
-  color: var(--secondary);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  display: block;
+.footer__logo-img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer__brand-desc {
@@ -164,13 +145,13 @@
   align-items: center;
   justify-content: center;
   font-size: 0.9rem;
-  box-shadow: var(--shadow-glow-teal);
+  box-shadow: var(--shadow-glow-blue);
   transition: all 0.3s var(--ease-spring);
 }
 
 .footer__top-btn:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(13, 124, 102, 0.5);
+  box-shadow: 0 8px 25px rgba(42, 171, 226, 0.5);
 }
 
 /* Responsive */
