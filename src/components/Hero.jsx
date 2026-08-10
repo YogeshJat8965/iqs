@@ -2,22 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import { FaPlay, FaGlobeAmericas, FaPlane, FaHotel, FaInstagram, FaYoutube, FaFacebookF } from 'react-icons/fa'
 import './Hero.css'
 
-const heroBackgrounds = [
-  '/images/hero-clinic.png',
-  '/images/service-hair.png',
-  '/images/service-dental.png',
-  '/images/service-cosmetic.png',
-  '/images/gallery-clinic.png',
-  '/images/happy-patient.png',
-  '/images/istanbul-view.png'
-]
 
 const typewriterWords = ['Confidence.', 'Smile.', 'Hairline.', 'Beauty.']
 
 export default function Hero() {
   const heroRef = useRef(null)
   const imageRef = useRef(null)
-  const [currentBg, setCurrentBg] = useState(0)
 
   // Typewriter state
   const [text, setText] = useState('')
@@ -25,13 +15,6 @@ export default function Hero() {
   const [loopNum, setLoopNum] = useState(0)
   const [typingSpeed, setTypingSpeed] = useState(100)
 
-  useEffect(() => {
-    // Background image slider interval
-    const bgInterval = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % heroBackgrounds.length)
-    }, 5000)
-    return () => clearInterval(bgInterval)
-  }, [])
 
   useEffect(() => {
     let ticker = setTimeout(() => {
@@ -79,15 +62,17 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero" ref={heroRef}>
-      {/* Animated Image Background Slider */}
+      {/* Video Background */}
       <div className="hero__bg">
-        {heroBackgrounds.map((bg, index) => (
-          <div
-            key={index}
-            className={`hero__bg-slide ${index === currentBg ? 'hero__bg-slide--active' : ''}`}
-            style={{ backgroundImage: `url(${bg})` }}
-          />
-        ))}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="hero__video-bg"
+        >
+          <source src="/heroVideo.mp4" type="video/mp4" />
+        </video>
         <div className="hero__bg-overlay" />
       </div>
 
