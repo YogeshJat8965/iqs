@@ -73,14 +73,14 @@ export default function About() {
           <span className="section-label">Meet Your Doctor</span>
           <h2 className="section-title">Dr. IQRA KHALID</h2>
           <p className="about__text">
-            With years of experience in cosmetic surgery, dental care, and hair transplantation, 
-            Dr. Iqra Khalid has helped hundreds of patients from around the world achieve their 
-            desired transformations. At IQS Clinic in Istanbul, we combine cutting-edge medical 
+            With years of experience in cosmetic surgery, dental care, and hair transplantation,
+            Dr. Iqra Khalid has helped hundreds of patients from around the world achieve their
+            desired transformations. At IQS Clinic in Istanbul, we combine cutting-edge medical
             technology with personalized care to deliver exceptional results.
           </p>
           <p className="about__text">
-            Our commitment to excellence extends beyond the treatment room — we provide complete 
-            medical tourism support including travel arrangements, hotel accommodations, and 
+            Our commitment to excellence extends beyond the treatment room - we provide complete
+            medical tourism support including travel arrangements, hotel accommodations, and
             professional translator services for our international patients.
           </p>
 

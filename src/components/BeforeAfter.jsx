@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import './BeforeAfter.css'
 
 import img1Before from '../assets/1before.jpg'
@@ -7,127 +7,154 @@ import img2Before from '../assets/2before.jpg'
 import img2After from '../assets/2after.jpg'
 import img3Before from '../assets/3before.jpg'
 import img3After from '../assets/3after.jpg'
-// 4after is missing from assets, skipping 4 for now to avoid build errors
 import img5Before from '../assets/5before.jpg'
 import img5After from '../assets/5after.jpg'
 
 const results = [
-  {
-    category: 'Patient 1',
-    before: img1Before,
-    after: img1After,
-    label: 'Treatment Result',
-  },
-  {
-    category: 'Patient 2',
-    before: img2Before,
-    after: img2After,
-    label: 'Treatment Result',
-  },
-  {
-    category: 'Patient 3',
-    before: img3Before,
-    after: img3After,
-    label: 'Treatment Result',
-  },
-  {
-    category: 'Patient 5',
-    before: img5Before,
-    after: img5After,
-    label: 'Treatment Result',
-    positionY: '10%', // Shift slightly downwards to show head properly
-  },
-  {
-    category: 'Hair Transplant',
-    before: '/images/before-hair.png',
-    after: '/images/after-hair.png',
-    label: 'FUE Hair Transplant — 6 Months Result',
-  },
-  {
-    category: 'Dental',
-    before: '/images/before-dental.png',
-    after: '/images/after-dental.png',
-    label: 'Hollywood Smile — Dental Veneers',
-  },
+  { id: 0, label: 'Hair Restoration', tag: 'FUE Hair Transplant', before: img1Before, after: img1After },
+  { id: 1, label: 'Dental Smile', tag: 'Hollywood Veneers', before: img2Before, after: img2After },
+  { id: 2, label: 'Skin Rejuvenation', tag: 'Facelift Surgery', before: img3Before, after: img3After },
+  { id: 3, label: 'Hair Density', tag: 'DHI Technique', before: img5Before, after: img5After },
 ]
 
-function Slider({ data }) {
-  const [position, setPosition] = useState(50)
-  const containerRef = useRef(null)
-  const isDragging = useRef(false)
-
-  const handleMove = (clientX) => {
-    if (!containerRef.current) return
-    const rect = containerRef.current.getBoundingClientRect()
-    const x = clientX - rect.left
-    const percent = Math.max(0, Math.min(100, (x / rect.width) * 100))
-    setPosition(percent)
-  }
-
-  const handleMouseDown = () => { isDragging.current = true }
-  const handleMouseUp = () => { isDragging.current = false }
-  const handleMouseMove = (e) => { if (isDragging.current) handleMove(e.clientX) }
-  const handleTouchMove = (e) => { handleMove(e.touches[0].clientX) }
-
-  return (
-    <div className="ba__slider-wrapper" data-animate="fade-up">
-      <div
-        className="ba__slider"
-        ref={containerRef}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        onMouseMove={handleMouseMove}
-        onTouchStart={handleMouseDown}
-        onTouchEnd={handleMouseUp}
-        onTouchMove={handleTouchMove}
-      >
-        {/* After Image (full width background) */}
-        <div className="ba__image ba__image--after">
-          <img src={data.after} alt="After treatment" style={{ objectPosition: data.positionY ? `50% ${data.positionY}` : 'center' }} />
-          <span className="ba__label ba__label--after">After</span>
-        </div>
-
-        {/* Before Image (clipped) */}
-        <div
-          className="ba__image ba__image--before"
-          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-        >
-          <img src={data.before} alt="Before treatment" style={{ objectPosition: data.positionY ? `50% ${data.positionY}` : 'center' }} />
-          <span className="ba__label ba__label--before">Before</span>
-        </div>
-
-        {/* Divider */}
-        <div className="ba__divider" style={{ left: `${position}%` }}>
-          <div className="ba__divider-line" />
-          <div className="ba__divider-handle">
-            <span>◄</span>
-            <span>►</span>
-          </div>
-        </div>
-      </div>
-      <p className="ba__caption">{data.label}</p>
-    </div>
-  )
-}
+const TOTAL = results.length
+const AUTO_INTERVAL = 4000
 
 export default function BeforeAfter() {
+  const [active, setActive] = useState(0)
+  const timerRef = useRef(null)
+  const dragStart = useRef(null)
+  const isAnimating = useRef(false)
+
+  const goTo = useCallback((index) => {
+    if (isAnimating.current) return
+    isAnimating.current = true
+    setActive(index)
+    setTimeout(() => { isAnimating.current = false }, 700)
+  }, [])
+
+  const next = useCallback(() => goTo((active + 1) % TOTAL), [active, goTo])
+  const prev = useCallback(() => goTo((active - 1 + TOTAL) % TOTAL), [active, goTo])
+
+  const resetTimer = useCallback(() => {
+    clearInterval(timerRef.current)
+    timerRef.current = setInterval(next, AUTO_INTERVAL)
+  }, [next])
+
+  useEffect(() => {
+    timerRef.current = setInterval(next, AUTO_INTERVAL)
+    return () => clearInterval(timerRef.current)
+  }, [next])
+
+  const handlePrev = () => { resetTimer(); prev() }
+  const handleNext = () => { resetTimer(); next() }
+
+  const onPointerDown = (e) => { dragStart.current = e.clientX ?? e.touches?.[0]?.clientX }
+  const onPointerUp = (e) => {
+    if (dragStart.current === null) return
+    const end = e.clientX ?? e.changedTouches?.[0]?.clientX
+    const diff = dragStart.current - end
+    if (Math.abs(diff) > 50) { resetTimer(); diff > 0 ? next() : prev() }
+    dragStart.current = null
+  }
+
+  const getPos = (id) => {
+    const diff = (id - active + TOTAL) % TOTAL
+    if (diff === 0) return 'center'
+    if (diff === 1) return 'right'
+    if (diff === TOTAL - 1) return 'left'
+    return 'hidden'
+  }
+
   return (
     <section className="ba" id="results">
       <div className="ba__container container">
+
         <div className="ba__header" data-animate="fade-up">
           <span className="section-label">Real Results</span>
           <h2 className="section-title">See the Transformation</h2>
           <p className="section-subtitle">
-            Drag the slider to see real before & after results from our patients.
+            Real before &amp; after results from our patients - authentic transformations.
           </p>
         </div>
 
-        <div className="ba__grid">
-          {results.map((result, index) => (
-            <Slider key={index} data={result} />
+        <div
+          className="ba__stage"
+          onMouseDown={onPointerDown}
+          onMouseUp={onPointerUp}
+          onTouchStart={onPointerDown}
+          onTouchEnd={onPointerUp}
+        >
+          {results.map((item) => {
+            const pos = getPos(item.id)
+            return (
+              <div
+                key={item.id}
+                className={`ba__card ba__card--${pos}`}
+                onClick={() => pos !== 'center' && (resetTimer(), goTo(item.id))}
+              >
+                <div className="ba__split">
+                  <div className="ba__half ba__half--before">
+                    <img src={item.before} alt="Before" draggable={false} />
+                    <span className="ba__tag ba__tag--before">Before</span>
+                  </div>
+
+                  <div className="ba__center-line">
+                    <div className="ba__center-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div className="ba__half ba__half--after">
+                    <img src={item.after} alt="After" draggable={false} />
+                    <span className="ba__tag ba__tag--after">After</span>
+                  </div>
+                </div>
+
+                {pos === 'center' && (
+                  <div className="ba__card-footer">
+                    <span className="ba__card-treatment">{item.tag}</span>
+                    <span className="ba__card-label">{item.label}</span>
+                  </div>
+                )}
+
+                {pos !== 'center' && <div className="ba__card-vignette" />}
+              </div>
+            )
+          })}
+
+          <button className="ba__arrow ba__arrow--prev" onClick={handlePrev} aria-label="Previous">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button className="ba__arrow ba__arrow--next" onClick={handleNext} aria-label="Next">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="ba__dots">
+          {results.map((item) => (
+            <button
+              key={item.id}
+              className={`ba__dot${item.id === active ? ' ba__dot--active' : ''}`}
+              onClick={() => { resetTimer(); goTo(item.id) }}
+              aria-label={`Go to slide ${item.id + 1}`}
+            />
           ))}
         </div>
+
+        <div className="ba__progress-track">
+          <div className="ba__progress-bar" key={active} />
+        </div>
+
       </div>
     </section>
   )

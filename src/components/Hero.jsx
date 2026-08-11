@@ -64,11 +64,11 @@ export default function Hero() {
     <section className="hero" id="hero" ref={heroRef}>
       {/* Video Background */}
       <div className="hero__bg">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="hero__video-bg"
         >
           <source src="/heroVideo.mp4" type="video/mp4" />
@@ -95,7 +95,7 @@ export default function Hero() {
 
           {/* <p className="hero__subtitle">
             Expert in Cosmetic Surgery, Dental Care, Hair Transplants & Online Consultations.
-            Medical Tourism Support — Travel, Hotel & Translator services included.
+            Medical Tourism Support - Travel, Hotel & Translator services included.
           </p> */}
 
           <div className="hero__buttons">
@@ -136,7 +136,7 @@ export default function Hero() {
               className="hero__image"
             />
             <div className="hero__image-border" />
-            
+
             {/* Social Icons Bar */}
             <div className="hero__social">
               <a href="https://www.instagram.com/iqs.clinic/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-ig"><FaInstagram /></a>

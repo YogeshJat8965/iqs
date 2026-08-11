@@ -34,7 +34,7 @@ export default function BookingForm() {
             Book Your Free Consultation
           </h2>
           <p className="section-subtitle section-subtitle--light">
-            Take the first step towards your dream transformation. Our team will 
+            Take the first step towards your dream transformation. Our team will <br />
             get back to you within 24 hours with a personalized treatment plan.
           </p>
 

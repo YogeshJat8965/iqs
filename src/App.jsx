@@ -5,10 +5,10 @@ import Marquee from './components/Marquee'
 import About from './components/About'
 import Services from './components/Services'
 import BeforeAfter from './components/BeforeAfter'
+import Journey from './components/Journey'
+import ReelsShowcase from './components/ReelsShowcase'
 // import Reviews from './components/Reviews'
 import WhyChoose from './components/WhyChoose'
-import Timeline from './components/Timeline'
-import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import BookingForm from './components/BookingForm'
 import Footer from './components/Footer'
@@ -82,10 +82,10 @@ function App() {
       <About />
       <Services />
       <BeforeAfter />
+      <Journey />
+      <ReelsShowcase />
       {/* <Reviews /> */}
       <WhyChoose />
-      <Timeline />
-      <Gallery />
       <Marquee reverse text="★ Trusted by 500+ International Patients ★ State-of-the-Art Istanbul Clinic ★ Free Online Consultation ★ Medical Tourism Experts ★ Premium Care ★ Trusted by 500+ International Patients ★ State-of-the-Art Istanbul Clinic ★ Free Online Consultation ★ Medical Tourism Experts ★ Premium Care" />
       <Contact />
       <BookingForm />

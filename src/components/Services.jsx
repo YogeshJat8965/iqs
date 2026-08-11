@@ -5,23 +5,20 @@ const services = [
   {
     icon: <FaCut />,
     title: 'Hair Transplants',
-    description: 'Advanced FUE & DHI hair transplant procedures with natural-looking results. Our state-of-the-art technology ensures minimal downtime and maximum density.',
-    image: '/images/service-hair.png',
-    features: ['FUE & DHI Methods', 'Natural Hairline Design', 'Painless Procedure', 'Lifetime Results'],
+    description: 'Advanced FUE & DHI treatments for natural-looking hair restoration.',
+    video: '/hairTransplant.mp4',
   },
   {
     icon: <FaTooth />,
     title: 'Dental Treatments',
-    description: 'Complete dental care from veneers to implants. Hollywood smile makeovers using premium materials for a perfect, lasting smile.',
-    image: '/images/service-dental.png',
-    features: ['Dental Veneers', 'Teeth Whitening', 'Dental Implants', 'Hollywood Smile'],
+    description: 'Advanced dental care for healthy, confident and beautiful smiles.',
+    video: '/dentalService.mp4',
   },
   {
     icon: <FaMagic />,
     title: 'Cosmetic Surgeries',
-    description: 'Expert cosmetic and plastic surgery procedures tailored to your goals. Rhinoplasty, facelifts, body contouring, and more by certified surgeons.',
-    image: '/images/service-cosmetic.png',
-    features: ['Rhinoplasty', 'Facelift', 'Liposuction', 'Body Contouring'],
+    description: 'Personalized aesthetic procedures for refined, natural-looking results.',
+    video: '/cosmeticSurgery.mp4',
   },
 ]
 
@@ -46,26 +43,23 @@ export default function Services() {
               data-delay={`${index * 0.15}`}
             >
               <div className="services__card-image">
-                <img src={service.image} alt={service.title} loading="lazy" />
-                <div className="services__card-overlay" />
+                <video
+                  src={service.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="services__card-video"
+                />
+                <div className="services__card-icon">{service.icon}</div>
               </div>
 
               <div className="services__card-content">
-                <div className="services__card-icon">{service.icon}</div>
                 <h3 className="services__card-title">{service.title}</h3>
                 <p className="services__card-desc">{service.description}</p>
 
-                <ul className="services__card-features">
-                  {service.features.map((f, i) => (
-                    <li key={i}>
-                      <span className="services__feature-dot" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
                 <a href="#booking" className="services__card-link">
-                  Book Consultation →
+                  Explore Treatment →
                 </a>
               </div>
 

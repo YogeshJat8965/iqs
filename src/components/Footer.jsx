@@ -17,8 +17,8 @@ export default function Footer() {
               <img src={logo} alt="IQS Clinic" className="footer__logo-img" />
             </div>
             <p className="footer__brand-desc">
-              Expert in Cosmetic Surgery, Dental Care, Hair Transplants & Online Consultations. 
-              Medical Tourism Support — Travel, Hotel, Translator.
+              Expert in Cosmetic Surgery, Dental Care, Hair Transplants & Online Consultations.
+              Medical Tourism Support - Travel, Hotel, Translator.
             </p>
             <div className="footer__social">
               <a href="https://www.instagram.com/iqs.clinic/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
