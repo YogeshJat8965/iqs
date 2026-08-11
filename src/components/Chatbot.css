@@ -313,11 +313,10 @@
   transform: scale(1.05);
 }
 
-.chatbot-wa-btn {
+.chatbot-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #25d366;
   color: white !important;
   padding: 8px 16px;
   border-radius: 20px;
@@ -325,14 +324,46 @@
   font-weight: 600;
   font-size: 0.9rem;
   margin: 4px 0;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
   transition: all 0.2s;
 }
 
-.chatbot-wa-btn:hover {
-  background: #20bd5a;
+.chatbot-btn:hover {
   transform: translateY(-2px);
+}
+
+.chatbot-btn--wa {
+  background: #25d366;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+.chatbot-btn--wa:hover {
+  background: #20bd5a;
   box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.chatbot-btn--ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  box-shadow: 0 4px 12px rgba(220, 39, 67, 0.3);
+}
+.chatbot-btn--ig:hover {
+  box-shadow: 0 6px 16px rgba(220, 39, 67, 0.4);
+}
+
+.chatbot-btn--fb {
+  background: #1877f2;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+}
+.chatbot-btn--fb:hover {
+  background: #166fe5;
+  box-shadow: 0 6px 16px rgba(24, 119, 242, 0.4);
+}
+
+.chatbot-btn--maps {
+  background: #ea4335;
+  box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3);
+}
+.chatbot-btn--maps:hover {
+  background: #d33828;
+  box-shadow: 0 6px 16px rgba(234, 67, 53, 0.4);
 }
 
 @media (max-width: 480px) {

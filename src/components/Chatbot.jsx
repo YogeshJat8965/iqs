@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { GoogleGenerativeAI } from '@google/generative-ai'
-import { FaTimes, FaPaperPlane, FaRobot, FaWhatsapp } from 'react-icons/fa'
+import { FaTimes, FaPaperPlane, FaRobot, FaWhatsapp, FaInstagram, FaFacebook, FaMapMarkerAlt } from 'react-icons/fa'
 import './Chatbot.css'
 
 // Initialize Gemini (Will fail gracefully if key is missing)
@@ -20,7 +20,11 @@ CRITICAL RULES FOR RESPONSES:
 2. Use bullet points when listing services or features.
 3. Never provide exact pricing. Say "Prices are personalized. Book a free consultation for your quote!"
 4. Never give medical diagnoses.
-5. If the user seems interested, share the WhatsApp link (https://wa.me/905066494748) exactly like that, do not use markdown links like [text](url).
+5. Do not use markdown links. If a user asks for contact info, socials, or location, provide the raw URL exactly like this:
+   - WhatsApp: https://wa.me/905066494748
+   - Instagram: https://instagram.com/iqs.clinic
+   - Facebook: https://facebook.com/iqs.clinic
+   - Maps: https://maps.google.com/?q=IQS+Clinic+Istanbul
 6. Do not overwhelm the user with too much text in a single message.
 7. Respond in the user's language.
 
@@ -141,15 +145,44 @@ export default function Chatbot() {
     return parts.map((part, i) => {
       if (part.match(urlRegex)) {
         let cleanUrl = part.replace(/[.,)]+$/, '') // remove trailing punctuation
+        
         if (cleanUrl.includes('wa.me')) {
           return (
             <div key={i} style={{ margin: '8px 0' }}>
-              <a href={cleanUrl} target="_blank" rel="noopener noreferrer" className="chatbot-wa-btn">
+              <a href={cleanUrl} target="_blank" rel="noopener noreferrer" className="chatbot-btn chatbot-btn--wa">
                 <FaWhatsapp /> Chat on WhatsApp
               </a>
             </div>
           )
         }
+        if (cleanUrl.includes('instagram.com')) {
+          return (
+            <div key={i} style={{ margin: '8px 0' }}>
+              <a href={cleanUrl} target="_blank" rel="noopener noreferrer" className="chatbot-btn chatbot-btn--ig">
+                <FaInstagram /> Follow on Instagram
+              </a>
+            </div>
+          )
+        }
+        if (cleanUrl.includes('facebook.com')) {
+          return (
+            <div key={i} style={{ margin: '8px 0' }}>
+              <a href={cleanUrl} target="_blank" rel="noopener noreferrer" className="chatbot-btn chatbot-btn--fb">
+                <FaFacebook /> Visit Facebook
+              </a>
+            </div>
+          )
+        }
+        if (cleanUrl.includes('maps.google.com') || cleanUrl.includes('goo.gl/maps')) {
+          return (
+            <div key={i} style={{ margin: '8px 0' }}>
+              <a href={cleanUrl} target="_blank" rel="noopener noreferrer" className="chatbot-btn chatbot-btn--maps">
+                <FaMapMarkerAlt /> View on Google Maps
+              </a>
+            </div>
+          )
+        }
+
         return <a key={i} href={cleanUrl} target="_blank" rel="noopener noreferrer" style={{color: '#2aabe2', textDecoration: 'underline'}}>{cleanUrl}</a>
       }
       return <span key={i} dangerouslySetInnerHTML={{ __html: part }} />
