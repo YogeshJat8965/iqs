@@ -7,13 +7,14 @@ import Services from './components/Services'
 import BeforeAfter from './components/BeforeAfter'
 import Journey from './components/Journey'
 import ReelsShowcase from './components/ReelsShowcase'
-// import Reviews from './components/Reviews'
+import Reviews from './components/Reviews'
 import WhyChoose from './components/WhyChoose'
 import Contact from './components/Contact'
 import BookingForm from './components/BookingForm'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 import ScrollProgress from './components/ScrollProgress'
+import Chatbot from './components/Chatbot'
 import './App.css'
 
 function App() {
@@ -91,6 +92,7 @@ function App() {
       <BookingForm />
       <Footer />
       <WhatsAppButton />
+      <Chatbot />
     </div>
   )
 }
