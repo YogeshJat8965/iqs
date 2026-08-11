@@ -37,9 +37,10 @@ const allVideos = [
 export default function ReelsShowcase() {
   const [activeTab, setActiveTab] = useState('All')
   const [activeIndex, setActiveIndex] = useState(0)
-  const [isMuted, setIsMuted] = useState(false) // Try unmuted by default
+  const [isMuted, setIsMuted] = useState(false)
   const [isInView, setIsInView] = useState(false)
   const [showUnmuteHint, setShowUnmuteHint] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
   
   const videoRefs = useRef([])
   const sectionRef = useRef(null)
@@ -47,6 +48,14 @@ export default function ReelsShowcase() {
   const filteredVideos = activeTab === 'All' 
     ? allVideos 
     : allVideos.filter(v => v.tab === activeTab)
+
+  // Screen size detection for responsive 3D math
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    handleResize() // Initial check
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // Viewport intersection observer
   useEffect(() => {
@@ -127,15 +136,18 @@ export default function ReelsShowcase() {
     let translateZ = 0
     let rotateY = 0
     let scale = 1
-    let zIndex = 10
+    let zIndex = 50
     let opacity = 1
 
     if (diff !== 0) {
       // Inactive items
       const direction = diff > 0 ? 1 : -1
       
-      // Spread items wider across the full width screen
-      translateX = direction * (130 + (absDiff - 1) * 110) // Wider spacing (130%, 240%, 350%...)
+      // On mobile, spread less so side cards remain visible inside the viewport
+      const baseSpread = isMobile ? 85 : 130
+      const spreadMultiplier = isMobile ? 75 : 110
+      
+      translateX = direction * (baseSpread + (absDiff - 1) * spreadMultiplier)
       translateZ = -180 - (absDiff * 60)
       rotateY = direction * -30 // Angle towards center
       scale = 0.9 - (absDiff * 0.12)

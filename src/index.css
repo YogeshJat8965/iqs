@@ -164,7 +164,12 @@ h6 {
   color: var(--text-muted);
   max-width: 600px;
   line-height: 1.7;
-  white-space: nowrap;
+}
+
+@media (min-width: 769px) {
+  .section-subtitle {
+    white-space: nowrap;
+  }
 }
 
 .section-subtitle--light {
