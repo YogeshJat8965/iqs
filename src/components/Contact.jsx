@@ -21,7 +21,8 @@ export default function Contact() {
         </div>
 
         <div className="contact__grid">
-          {/* Map */}
+          {/* Map + Social Icons (Left column) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div className="contact__map" data-animate="fade-right" style={{ position: 'relative' }}>
             <a 
               href="https://maps.app.goo.gl/NXvebZ1hvsC5NvU79?g_st=ac"
@@ -46,6 +47,23 @@ export default function Contact() {
               loading="lazy"
               title="IQS Clinic Location"
             />
+          </div>
+
+            {/* Social Icons below map */}
+            <div className="contact__social">
+              <a href="https://www.instagram.com/iqs.clinic/" target="_blank" rel="noopener noreferrer" className="contact__social-icon contact__social-icon--ig" aria-label="Instagram">
+                <FaInstagram />
+              </a>
+              <a href="https://www.youtube.com/@IqsClinic" target="_blank" rel="noopener noreferrer" className="contact__social-icon contact__social-icon--yt" aria-label="YouTube">
+                <FaYoutube />
+              </a>
+              <a href="https://m.facebook.com/61584583359911/" target="_blank" rel="noopener noreferrer" className="contact__social-icon contact__social-icon--fb" aria-label="Facebook">
+                <FaFacebook />
+              </a>
+              <a href="https://wa.me/905066494748" target="_blank" rel="noopener noreferrer" className="contact__social-icon contact__social-icon--wa" aria-label="WhatsApp">
+                <FaWhatsapp />
+              </a>
+            </div>
           </div>
 
           {/* Info */}
@@ -100,21 +118,7 @@ export default function Contact() {
               </ul>
             </div>
 
-            {/* Social Media */}
-            <div className="contact__social">
-              <a href="https://www.instagram.com/iqs.clinic/" target="_blank" rel="noopener noreferrer" className="contact__social-icon contact__social-icon--ig" aria-label="Instagram">
-                <FaInstagram />
-              </a>
-              <a href="https://www.youtube.com/@IqsClinic" target="_blank" rel="noopener noreferrer" className="contact__social-icon contact__social-icon--yt" aria-label="YouTube">
-                <FaYoutube />
-              </a>
-              <a href="https://m.facebook.com/61584583359911/" target="_blank" rel="noopener noreferrer" className="contact__social-icon contact__social-icon--fb" aria-label="Facebook">
-                <FaFacebook />
-              </a>
-              <a href="https://wa.me/905066494748" target="_blank" rel="noopener noreferrer" className="contact__social-icon contact__social-icon--wa" aria-label="WhatsApp">
-                <FaWhatsapp />
-              </a>
-            </div>
+
           </div>
         </div>
       </div>

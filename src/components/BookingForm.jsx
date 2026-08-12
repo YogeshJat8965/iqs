@@ -3,7 +3,7 @@ import './BookingForm.css'
 
 export default function BookingForm() {
   const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', service: '', message: ''
+    name: '', email: '', phone: '', country: '', service: '', message: ''
   })
   const [submitted, setSubmitted] = useState(false)
 
@@ -102,6 +102,18 @@ export default function BookingForm() {
               id="booking-phone"
             />
             <label htmlFor="booking-phone">Phone / WhatsApp</label>
+          </div>
+
+          <div className="booking__field">
+            <input
+              type="text"
+              name="country"
+              placeholder=" "
+              value={formData.country}
+              onChange={handleChange}
+              id="booking-country"
+            />
+            <label htmlFor="booking-country">Country</label>
           </div>
 
           <div className="booking__field">

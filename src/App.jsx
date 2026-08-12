@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 import ScrollProgress from './components/ScrollProgress'
 import Chatbot from './components/Chatbot'
+import Testimonials from './components/Testimonials'
 import './App.css'
 
 function App() {
@@ -85,6 +86,7 @@ function App() {
       <BeforeAfter />
       <Journey />
       <ReelsShowcase />
+      <Testimonials />
       {/* <Reviews /> */}
       <WhyChoose />
       <Marquee reverse text="★ Trusted by 500+ International Patients ★ State-of-the-Art Istanbul Clinic ★ Free Online Consultation ★ Medical Tourism Experts ★ Premium Care ★ Trusted by 500+ International Patients ★ State-of-the-Art Istanbul Clinic ★ Free Online Consultation ★ Medical Tourism Experts ★ Premium Care" />

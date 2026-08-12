@@ -47,6 +47,7 @@
 }
 
 .journey__header .section-subtitle {
+  text-align: center;
   margin: 0 auto;
   color: var(--text-muted);
 }
@@ -117,7 +118,8 @@
   align-items: center;
   z-index: 5;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.15); /* very light dark tint to make text pop */
+  background: rgba(0, 0, 0, 0.15);
+  /* very light dark tint to make text pop */
 }
 
 .journey__unmute-pulse {
